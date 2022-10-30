@@ -76,4 +76,51 @@ from Claim c
 inner join Claimant clm ON c.ClaimID = clm.ClaimID and c.ClaimNumber = '752663830-X'
 --where c.ClaimNumber = '752663830-X'
 inner join patient p ON p.PatientID = clm.PatientID
+-------------------------------------------------------------------------------------------
+-- Which Offices have the most Users?
+
+select o.OfficeDesc
+	, COUNT(u.UserName) as UserCount
+from Office o
+left join users u  ON u.OfficeID = o.OfficeID
+Group by OfficeDesc
+order by UserCount desc
+
+-------------------------------------------------------------------------------------------
+--Select all the reserve changes made by a user in a San Francisco (17.10.2022)
+
+select r.ReserveID
+	,r.ClaimantID 
+	,o.OfficeDesc
+	,u.UserName
+from Reserve r
+inner join users u ON r.EnteredBy = u.UserName
+inner join office O ON u.OfficeID = O.OfficeID --and o.OfficeID = 1
+where O.OfficeID = 1
+order by r.ClaimantID
+
+-------------------------------------------------------------------------------------------
+/* Find the Reserve Type Bucker of each Reserve change. (18.10.2022)*/
+
+/*select RT.ReserveTypeDesc, rt.reserveTypeID, RT.ParentID
+
+from ReserveType RT
+where RT.ReserveTypeDesc = 'Medical' 
+or RT.ReserveTypeDesc = 'Temporary Disability'
+or RT.ReserveTypeDesc = 'Permanent Disability'
+or RT.ReserveTypeDesc = 'Vocational Rehabilitation'
+or RT.ReserveTypeDesc = 'Expense'
+or RT.ReserveTypeDesc = 'Fatality'
+
+select * from Reserve*/
+
+Select ISNULL(RT2.ReserveTypeDesc, RT1.ReserveTypeDesc) as ReserveBucket
+	, RT2.ReserveTypeDesc as ReserveParent
+	, RT1.ReserveTypeDesc
+	, R.*
+FROM Reserve R
+Inner Join ReserveType RT1 ON R.ReserveTypeID = RT1.reserveTypeID
+Left Join ReserveType RT2 ON RT2.reserveTypeID = RT1. ParentID
+-------------------------------------------------------------------------------------------
+
 
