@@ -1,0 +1,175 @@
+// See https://aka.ms/new-console-template for more information
+using Microsoft.Win32.SafeHandles;
+using static System.Net.WebRequestMethods;
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
+/*
+// Kvadratické funkce ax^2 + bx + c = 0 my own solution
+//d = b^2 - 4 * a * c
+//x1 = (-b + odmocnina(d)) / 2a
+//x2 = (-b - odmocnina(d)) / 2a
+
+/*Console.WriteLine("Zadejte postupně koeficientny a,b,c kvadratické rovnice ax^2 + bx + c = 0:");
+double a = double.Parse(Console.ReadLine());
+double b = double.Parse(Console.ReadLine());
+double c = double.Parse(Console.ReadLine());
+double D = Math.Pow(b, 2) - 4 * a * c;
+double x1 = (-b + Math.Sqrt(D)) / (2 * a);
+double x2 = (-b - Math.Sqrt(D)) / (2 * a);
+if (a <= 0)
+    Console.WriteLine("Není kvadratická rovnice");
+else if (D < 0)
+    Console.WriteLine("Neexistuje řešení v oblasti reálných čísel");
+else if (x1 == x2)
+    Console.WriteLine("Rovnice má jeden kořen x = " + x1);
+else
+    Console.WriteLine("Rovnice má 2 reálné kořeny x1 = " + x1 + ", x2 = " + x2);
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Zadej smajlíka se "Switch"
+/*
+Console.WriteLine("Zadej smajlíka:");
+string volba = Console.ReadLine();
+
+switch (volba)
+{
+    case ":-)":
+        Console.WriteLine("Tvůj smajlík je veselý");
+    break;
+
+    case ":-(":
+        Console.WriteLine("Tvůj smajlík je smutný");
+    break;
+
+    case ":-*":
+        Console.WriteLine("Tvůj smajlík je zamilovaný");
+    break;
+
+    case ":-P":
+        Console.WriteLine("Tvůj smajlík je s vyplazeným jazykem");
+    break;
+    case ":P":
+        Console.WriteLine("Tvůj smajlík je s vyplazeným jazykem bez nosu");
+    break;
+    case ": P":
+        Console.WriteLine("Tvůj smajlík je s vyplazeným jazykem bez nosu");
+    break;
+    default: Console.WriteLine("Tvůj smajlík je neznámy");
+    break;
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Zadaj smajlíka s "IF"
+/*Console.WriteLine("Zadaj smajlíka:");
+string smajlik = Console.ReadLine();
+if (smajlik == ":-)")
+    Console.WriteLine("Tvůj smajlík je veselý");
+else if (smajlik == ":-(")
+    Console.WriteLine("Tvůj smajlík je smutný");
+else if (smajlik == ":-*")
+    Console.WriteLine("Tvůj smajlík je zamilovaný");
+else if (smajlik == ":-P")
+    Console.WriteLine("Tvůj smajlík je s vyplazeným jazykem");
+else
+    Console.WriteLine("Tvůj smajlik je neznámý");*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Analýza délky Jmena
+/*Console.WriteLine("Zadej své jméno:");
+string jmeno = Console.ReadLine().Trim();
+int delka = jmeno.Length;
+if ((10 >= delka) && (delka >= 3))
+    Console.WriteLine("Normální jméno.");
+else
+    Console.WriteLine("Máš moc krátké nebo moc dlouhé jméno!");
+Console.ReadKey();*/
+
+//Hledej slovo "itnetwork" v texte
+/*
+Console.WriteLine("Zadej řetezec:");
+string text = Console.ReadLine();
+text = text.ToLower();
+Console.WriteLine(text.Contains("itnetwork"));
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Rozdíl delky slov
+/*
+Console.WriteLine("Zadejte delší slovo:");
+string delsi = Console.ReadLine().Trim();
+Console.WriteLine("Zadejte kratší slovo:"); 
+string kratsi = Console.ReadLine().Trim();
+Console.WriteLine("Slova se liší délkou o " + (delsi.Length - kratsi.Length) + " znaků");
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Zkoušení velkých a malých písmen
+/*
+Console.WriteLine("Zadej jméno:");
+string jmeno = Console.ReadLine();
+Console.WriteLine("Zadej příjmení:");
+string primeni = Console.ReadLine();
+Console.WriteLine("Zadej svůj věk:");
+byte vek = byte.Parse(Console.ReadLine());
+string cele_meno = jmeno + " " + primeni;
+cele_meno = cele_meno.ToUpper();
+Console.WriteLine(cele_meno);
+Console.WriteLine("Za rok ti bude " + (vek+1) +" let.");
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Obvod a obsah kruhu
+/*
+Console.WriteLine("Zadej poloměr kruhu (cm):");
+float polomer = float.Parse(Console.ReadLine()) * 0.1F;
+float Pi = 3.1415F;
+float obvod = 2 * Pi * polomer;
+float obsah = Pi * polomer * polomer;
+Console.WriteLine("Obvod zadaného kruhu je: " + obvod);
+Console.WriteLine("Jeho obsah je " + obsah + " cm^2");
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Umocni
+/*
+Console.WriteLine("Zadej číslo k umocnění:");
+int number = int.Parse(Console.ReadLine());
+int umocneni = number * number;
+Console.WriteLine("Výsledek: " + umocneni);
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Vypíš jméno
+/*
+Console.WriteLine("Ahoj, jak se jmenuješ?");
+string jmeno = Console.ReadLine();
+Console.WriteLine("Jaký jsi?");
+string vlastnost = Console.ReadLine();
+Console.WriteLine(jmeno + " je " + vlastnost);
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------
+//Základní kalkulačka
+/*
+Console.WriteLine("Vitajte v kalkulačce");
+Console.WriteLine("Zadejte první číslo:");
+float cislo = float.Parse(Console.ReadLine());
+Console.WriteLine("Zadejte druhá číslo:");
+float b = float.Parse(Console.ReadLine());
+float soucet = cislo + b;
+float rozdil = cislo - b;
+float soucin = cislo * b;
+float podil = cislo / b;
+Console.WriteLine("Součet:" + soucet);
+Console.WriteLine("Rozdil:" + rozdil);
+Console.WriteLine("Součin:" + soucin);
+Console.WriteLine("Podil:" + podil);
+Console.WriteLine("Dík za použítí");
+Console.ReadLine();
+Console.WriteLine(nameof(cislo));
+*/
